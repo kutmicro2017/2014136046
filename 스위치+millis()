@@ -109,15 +109,3 @@ void initUpDown(){
   digitalWrite(UPPER_GREEN, LOW);  digitalWrite(LOWER_GREEN, LOW);
   TimeLR = millis();
  }
-
-/* void changeUD2LR(){
-  delay(1000);
-  Blink_UD_LED();
-  initLeftRight();
- }
-
-void changeLR2UD(){
-  delay(1000);
-  Blink_LR_LED();
-  initUpDown();
-}*/
