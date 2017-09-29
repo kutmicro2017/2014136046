@@ -20,7 +20,7 @@ unsigned long TimeLR;
 
 void setup()  // 초기 한번 실행
 {
-   Serial.begin(9600);
+  
   pinMode(UPPER_RED, OUTPUT);
   pinMode(UPPER_YELLOW, OUTPUT);
   pinMode(UPPER_GREEN, OUTPUT);
