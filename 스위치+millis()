@@ -14,7 +14,7 @@
 #define LR_SW 32       //양옆 스위치
 #define LED 8
 
-int interval = 5000;
+int interval = 10000;
 unsigned long TimeUD;
 unsigned long TimeLR;
 
@@ -55,11 +55,11 @@ void loop() //반복
   else{
     unsigned long currentTime = millis();
     
-    if(currentTime > TimeUD + interval*2 && currentTime > TimeLR + interval*2){
+    if(currentTime > TimeUD + interval && currentTime > TimeLR + interval*2){
       Blink_UD_LED();
       initLeftRight(); 
     }
-    else if(currentTime > TimeLR + interval*2 && currentTime > TimeUD + interval*2){
+    else if(currentTime > TimeLR + interval && currentTime > TimeUD + interval*2){
       Blink_LR_LED();
       initUpDown();
     }
