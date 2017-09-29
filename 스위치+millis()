@@ -37,31 +37,29 @@ void setup()  // 초기 한번 실행
   pinMode(LR_SW, INPUT_PULLUP);
   pinMode(LED, OUTPUT);
   initLeftRight();
-  TimeLR = 5000;
+  /*TimeLR = 5000;*/
 }
 
 void loop() //반복
 {
   if(digitalRead(LR_SW) == LOW && digitalRead(UPPER_GREEN) == HIGH){
-    delay(1000);
+    delay(3000);
     Blink_UD_LED();
     initLeftRight();
   }
   else if(digitalRead(UD_SW) == LOW && digitalRead(LEFT_GREEN) == HIGH){
-    delay(1000);
+    delay(3000);
     Blink_LR_LED();
     initUpDown();
   }
   else{
     unsigned long currentTime = millis();
     
-    if(currentTime > TimeUD + interval && currentTime > TimeLR + interval*2){
-      delay(1000);
+    if(currentTime > TimeUD + interval*2 && currentTime > TimeLR + interval*2){
       Blink_UD_LED();
       initLeftRight(); 
     }
-    else if(currentTime > TimeLR + interval && currentTime > TimeUD + interval*2){
-      delay(1000);
+    else if(currentTime > TimeLR + interval*2 && currentTime > TimeUD + interval*2){
       Blink_LR_LED();
       initUpDown();
     }
@@ -97,6 +95,7 @@ void initUpDown(){
   digitalWrite(UPPER_RED, LOW);  digitalWrite(LOWER_RED, LOW);
   digitalWrite(RIGHT_GREEN, LOW);  digitalWrite(LEFT_GREEN, LOW);
   TimeUD = millis();
+  TimeLR = millis();
   }
   
  void initLeftRight(){
@@ -108,4 +107,6 @@ void initUpDown(){
   digitalWrite(LEFT_RED, LOW);  digitalWrite(RIGHT_RED, LOW);
   digitalWrite(UPPER_GREEN, LOW);  digitalWrite(LOWER_GREEN, LOW);
   TimeLR = millis();
+  TimeUD = millis();
+  }
  }
